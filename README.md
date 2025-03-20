@@ -25,8 +25,6 @@ Project is created with:
 
 Create the `.env` file using the example of the already existing `.env.template` file.
 
-In order to run the application locally in a subdirectory, add `VITE_OCELOT_LOCAL=true` to your `~/.zshrc` file or execute it once `VITE_OCELOT_LOCAL=true npm run start`, as Vite config needs to pick up this variable as well.
-
 #### 2. Installation and running
 
 To run the project install dependencies locally using npm:
