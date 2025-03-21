@@ -24,6 +24,8 @@ Project is created with:
 #### 1. Environment variables
 
 Create the `.env` file using the example of the already existing `.env.template` file.
+This will be the configuration file for the production environment.
+If during development the application is to use another database (e.g. local PostgreSQL, on Docker), then create a `.env.development` file and provide the address for `DATABASE_URL`.
 
 #### 2. Installation and running
 
@@ -48,7 +50,13 @@ docker compose up
 npx prisma migrate deploy
 ```
 
-3. (Optional) Fill the database with test data by runnig this command in the root folder:
+For development purposes, run the migration for your local database with a script from `package.json`:
+
+```bash
+npm run migrate:dev
+```
+
+3. (_Optional_) Fill the database with test data by runnig this command in the root folder:
 
 ```bash
 npx tsx ./db/seed

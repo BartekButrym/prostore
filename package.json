@@ -7,7 +7,10 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
-		"postinstall": "prisma generate"
+		"postinstall": "prisma generate",
+		"migrate:dev": "npx dotenv -e .env.development -- npx prisma migrate deploy",
+		"migrate:prod": "npx dotenv -e .env -- npx prisma migrate deploy",
+		"seed": "npx dotenv -e .env.development -- npx tsx ./db/seed"
 	},
 	"dependencies": {
 		"@neondatabase/serverless": "^0.10.4",
@@ -36,6 +39,7 @@
 		"@types/react-dom": "^19",
 		"@types/ws": "^8.18.0",
 		"bufferutil": "^4.0.9",
+		"dotenv-cli": "^8.0.0",
 		"eslint": "^9",
 		"eslint-config-next": "15.2.3",
 		"postcss": "^8.5.3",
