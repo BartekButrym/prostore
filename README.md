@@ -91,7 +91,13 @@ you will get an error because `@prisma/client` does not exist yet or is outdated
 - After every change to `schema.prisma`, if you are not creating a new migration.
 - If you have removed the `node_modules` directory and are installing dependencies from scratch (`npm install`).
 
-Generating migrations with `npx prisma migrate dev --name your_migration_name`
+#### _Generating migrations with_ `npx prisma migrate dev --name your_migration_name`
+
+During development, to generate a migration, run the command:
+
+```bash
+npm run generate-migration:dev -- your_migration_name
+```
 
 **What does this command do?**
 
