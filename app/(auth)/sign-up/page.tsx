@@ -5,13 +5,13 @@ import { redirect } from 'next/navigation';
 import { auth } from '@/auth';
 import { APP_NAME } from '@/lib/constants';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import CredentialsSignInForm from './credentials-signin-form';
+import SignUpForm from './sign-up-form';
 
 export const metadata: Metadata = {
-	title: 'Sign in',
+	title: 'Sign up',
 };
 
-const SignInPage = async (props: { searchParams: Promise<{ callbackUrl: string }> }) => {
+const SignUpPage = async (props: { searchParams: Promise<{ callbackUrl: string }> }) => {
 	const { callbackUrl } = await props.searchParams;
 
 	const session = await auth();
@@ -27,15 +27,15 @@ const SignInPage = async (props: { searchParams: Promise<{ callbackUrl: string }
 					<Link href='/' className='flex-center'>
 						<Image src='/images/logo.svg' width={100} height={100} alt={`${APP_NAME} logo`} priority={true} />
 					</Link>
-					<CardTitle className='text-center'>Sign In</CardTitle>
-					<CardDescription className='text-center'>Sign in to your account</CardDescription>
+					<CardTitle className='text-center'>Create account</CardTitle>
+					<CardDescription className='text-center'>Enter your information below to sign up</CardDescription>
 				</CardHeader>
 				<CardContent className='space-y-4'>
-					<CredentialsSignInForm />
+					<SignUpForm />
 				</CardContent>
 			</Card>
 		</div>
 	);
 };
 
-export default SignInPage;
+export default SignUpPage;
