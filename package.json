@@ -10,7 +10,7 @@
 		"postinstall": "prisma generate",
 		"migrate:dev": "npx dotenv -e .env.development -- npx prisma migrate deploy",
 		"migrate:prod": "npx dotenv -e .env -- npx prisma migrate deploy",
-		"generate-migration:dev": "npx prisma migrate dev --name",
+		"generate-migration:dev": "npx dotenv -e .env.development npx prisma migrate dev --name",
 		"seed:dev": "npx dotenv -e .env.development -- npx tsx ./db/seed",
 		"seed:prod": "npx dotenv -e .env -- npx tsx ./db/seed"
 	},

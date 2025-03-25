@@ -47,13 +47,13 @@ export const config = {
 		}),
 	],
 	callbacks: {
-		async session({ session, user, trigger, token }: any) {
+		async session({ session, trigger, token }: any) {
 			session.user.id = token.sub;
 			session.user.role = token.role;
 			session.user.name = token.name;
 
 			if (trigger === 'update') {
-				session.user.name = user.name;
+				session.user.name = token.name;
 			}
 
 			return session;
@@ -75,8 +75,11 @@ export const config = {
 					});
 				}
 
-				return token;
+				if (session?.user.name && trigger === 'update') {
+					token.name = session.user.name;
+				}
 			}
+			return token;
 		},
 	},
 } satisfies NextAuthConfig;
