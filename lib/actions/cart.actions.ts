@@ -126,7 +126,7 @@ export async function getMyCart() {
 
 	return convertToPlainObject({
 		...cart,
-		items: cart.items,
+		items: cart.items as CartItem[],
 		itemsPrice: cart.itemsPrice.toString(),
 		totalPrice: cart.totalPrice.toString(),
 		shippingPrice: cart.shippingPrice.toString(),
